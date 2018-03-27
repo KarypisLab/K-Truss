@@ -1,5 +1,5 @@
 # K-Truss
-OpenMP-based parallel program for computing the truss decomposition of a graph.
+OpenMP-based parallel software for computing the truss decomposition of a graph.
 
 
 ## Build requirements
