@@ -23,10 +23,10 @@ would configure it to be built using `icc`.
 
 Configuration options are:
 ```
-	cc=[compiler]     - The C compiler to use [default: gcc]
-	prefix=[PATH]     - Set the installation prefix [default: ~/local]
-	gklib_path=[PATH] - Where GKlib was installed [default: ~/local]
-	openmp=not-set    - To build a serial version
+  cc=[compiler]     - The C compiler to use [default: gcc]
+  prefix=[PATH]     - Set the installation prefix [default: ~/local]
+  gklib_path=[PATH] - Where GKlib was installed [default: ~/local]
+  openmp=not-set    - To build a serial version
 ```
 
 
@@ -89,11 +89,11 @@ Usage: ktruss [options] infile [outfile]
 
 The program supports two formats for its input files:
 
-	- The one used by the [Metis](http://www.cs.umn.edu/~metis) graph
-		partitioning program.
-	- The tsv format used by the graphs in the
-		[GraphChallenge 2017](http://graphchallenge.mit.edu/) competition (use the
-		"adjacency TSV" format).
+  - The one used by the [Metis](http://www.cs.umn.edu/~metis) graph
+    partitioning program.
+  - The tsv format used by the graphs in the
+    [GraphChallenge 2017](http://graphchallenge.mit.edu/) competition (use the
+    "adjacency TSV" format).
 
 Note that the graph has to be undirected and it needs to include both pairs of
 edges (i.e., (u,v) and (v,u)).
