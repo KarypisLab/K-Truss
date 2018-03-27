@@ -50,7 +50,7 @@ static gk_StringMap_t iftype_options[] = {
 static char helpstr[][100] =
 {
 " ",
-"Usage: kt [options] infile [outfile]",
+"Usage: ktruss [options] infile [outfile]",
 " ",
 " ",
 " Options",
@@ -66,10 +66,6 @@ static char helpstr[][100] =
 "     Possible values are:",
 "        metis   Metis format [default]",
 "        tsv     tsv format (i, j, v)",
-" ",
-"  -dbglvl=int",
-"     Specifies the level of debugging information to be displayed.",
-"     Default value is 0.",
 " ",
 "  -help",
 "     Prints this message.",

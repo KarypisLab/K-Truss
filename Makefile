@@ -82,4 +82,7 @@ remake:
 dist:
 	utils/mkdist.sh $(PKGNAME)
 
-.PHONY: config distclean all clean install uninstall remake dist
+gklib:
+	git submodule init && git submodule update
+
+.PHONY: config distclean all clean install uninstall remake dist gklib

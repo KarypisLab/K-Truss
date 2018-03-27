@@ -25,10 +25,10 @@ file(GLOB kt_sources src/*.c)
 include_directories(${GKLIB_PATH})
 
 # Build
-add_executable(kt ${GKlib_sources} ${kt_sources})
+add_executable(ktruss ${GKlib_sources} ${kt_sources})
 
 # Install
 if(KT_INSTALL)
-  install(TARGETS kt
+  install(TARGETS ktruss
     RUNTIME DESTINATION bin)
 endif()
