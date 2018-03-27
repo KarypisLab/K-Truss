@@ -87,6 +87,14 @@ Usage: ktruss [options] infile [outfile]
      Prints this message.
 ```
 
+### Changing the number of threads
+`ktruss` uses OpenMP for shared-memory parallelism (i.e., multithreading).
+As such, it follows the standard OpenMP environment variable `$OMP_NUM_THREADS`
+to configure the number of threads. By default, `ktruss` will use the
+number of logical cores found on the system.
+
+
+### Graph formats
 The program supports two formats for its input files:
 
   - The one used by the [Metis](http://www.cs.umn.edu/~metis) graph
