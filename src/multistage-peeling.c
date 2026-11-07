@@ -501,26 +501,10 @@ static int64_t p_update_supports(
 
         /* process second edge */
         int const bucket_dest = map_vtx_to_bucket(tri->w, thd_ws[tid]);
-        if(bucket_dest == tri->w) {
-          int64_t const edge_id = tri->vw;
-          if(supports[edge_id] > 0) {
-            supports[edge_id]--;
-
-            if(map_edge_to_bucket(edge_id, thd_ws[tid]) == bucket) {
-              sbucket_update_edge(&(sbuckets[bucket]), edge_id, supports[edge_id],
-                  ktruss);
-            } else {
-              /* prepare to update support-based bucket */
-              int const edge_bucket = map_edge_to_bucket(edge_id, thd_ws[tid]);
-              send_thread_edge_msg(edge_id, edge_bucket, thd_ws[tid], 1);
-            }
-            ++nchanges;
-          }
-
-        } else {
-          /* communicate and process in the next pass */
-          send_thread_edge_msg(tri->vw, bucket_dest, thd_ws[tid], 0);
-        }
+        /* First-role writes use the smaller endpoint's bucket. Defer
+         * second-role writes to their larger-endpoint owner after the barrier,
+         * so the two roles never modify a support concurrently. */
+        send_thread_edge_msg(tri->vw, bucket_dest, thd_ws[tid], 0);
       }
     } /* foreach bucket */
 
@@ -766,5 +750,3 @@ int64_t kt_msp(params_t *params, vault_t *vault)
 
   return ntriangles;
 }
-
-
